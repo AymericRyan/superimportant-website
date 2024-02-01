@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #ffdde1; /* Light pink background */
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white; /* White text color */
+        }
+
+        #proposal-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px; /* Adjusted margin */
+        }
+
+        p {
+            font-size: 24px; /* Adjusted font size */
+            margin: 20px 0 0 0; /* Adjusted margin */
+        }
+
+        #button-container {
+            display: flex;
+            flex-direction: column; /* Adjusted for smaller screens */
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #yes-button, #no-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white; /* White text color */
+            background-color: #ff66a3; /* Pink background color */
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0; /* Adjusted margin for smaller screens */
+        }
+
+        #no-button:hover {
+            animation: moveNoButton 0.5s;
+        }
+
+        @keyframes moveNoButton {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-100vh) translateX(-100vw);
+            }
+            50% {
+                transform: translateY(-100vh) translateX(100vw);
+            }
+            75% {
+                transform: translateY(0) translateX(100vw);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        #love-message {
+            display: none;
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+    <title>Valentine's Proposal</title>
+</head>
+<body>
+    <div id="main-container">
+        <p id="proposal-text">Will you be my Valentine, Charlotte Mimeault?</p>
+        <img id="proposal-image" src="https://c.tenor.com/Rk5r-9Wva18AAAAC/tenor.gif" alt="Valentine's Proposal Image">
+        <div id="button-container">
+            <button id="yes-button" onclick="showLoveMessage()">Yes</button>
+            <button id="no-button" onclick="moveNoButton()">No</button>
+        </div>
+        <div id="love-message">Thank You! I Love you to the moon and back!</div>
+    </div>
+
+    <script>
+        function showLoveMessage() {
+            // You can add code here to display a different image and the love message when 'Yes' is clicked
+            document.getElementById("proposal-text").style.display = "none";
+            document.getElementById("button-container").style.display = "none";
+            document.getElementById("love-message").style.display = "block";
+            document.getElementById("proposal-image").src = "https://media.tenor.com/ZnI81Jf9c0MAAAAi/cony-and-brown-kiss.gif";
+        }
+
+        let noButtonClicked = false;
+
+        function moveNoButton() {
+            if (!noButtonClicked) {
+                noButtonClicked = true;
+                // You can add code here to move or animate the 'No' button
+                document.getElementById("no-button").disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>
